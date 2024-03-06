@@ -2,15 +2,26 @@ package com.example.autrackmobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.autrackmobile.R;
+import com.example.autrackmobile.databinding.ActivitySignInBinding;
 
 public class SignInActivity extends AppCompatActivity {
+
+    private ActivitySignInBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        binding = ActivitySignInBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        setListeners();
+    }
+
+    private void setListeners() {
+        binding.newAccount.setOnClickListener(v ->
+                startActivity(new Intent(getApplicationContext(), SignUpActivity.class)));
     }
 }
