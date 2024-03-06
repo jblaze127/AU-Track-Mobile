@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "660212261887",
+    "project_id": "au-track-mobile",
+    "storage_bucket": "au-track-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660212261887:android:1952bc9521e6a12d20fdca",
+        "android_client_info": {
+          "package_name": "com.example.autrackmobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5OAR3NU94iP0DW7SLJ_VxgFDlhb-GgHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
