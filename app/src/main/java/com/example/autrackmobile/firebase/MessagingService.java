@@ -1,6 +1,5 @@
 package com.example.autrackmobile.firebase;
 
-
 import androidx.annotation.NonNull;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
