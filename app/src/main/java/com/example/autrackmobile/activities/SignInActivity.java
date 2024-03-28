@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.autrackmobile.databinding.ActivitySignInBinding;
 import com.example.autrackmobile.utilities.Constants;
 import com.example.autrackmobile.utilities.PreferenceManager;
+import com.google.firebase.Firebase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -31,6 +32,9 @@ public class SignInActivity extends AppCompatActivity {
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setListeners();
+
+
+
     }
 
     private void setListeners() {
@@ -59,7 +63,7 @@ public class SignInActivity extends AppCompatActivity {
                         preferenceManager.putString(Constants.KEY_FNAME, documentSnapshot.getString(Constants.KEY_FNAME)); //continue after this
                         preferenceManager.putString(Constants.KEY_LNAME, documentSnapshot.getString(Constants.KEY_LNAME));
                         preferenceManager.putString(Constants.KEY_IMAGE, documentSnapshot.getString(Constants.KEY_IMAGE));
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity .class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     } else {
@@ -67,6 +71,8 @@ public class SignInActivity extends AppCompatActivity {
                         showToast("Unable to Sign In");
                     }
                 });
+
+
     }
 
     private void loading(Boolean isLoading) {

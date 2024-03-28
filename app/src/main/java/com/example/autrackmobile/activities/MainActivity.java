@@ -1,7 +1,11 @@
 package com.example.autrackmobile.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.savedstate.SavedStateRegistryOwner;
 
 import android.content.Intent;
@@ -9,11 +13,18 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import com.example.autrackmobile.MessagingFragment;
+import com.example.autrackmobile.R;
 import com.example.autrackmobile.databinding.ActivityMainBinding;
 import com.example.autrackmobile.utilities.Constants;
 import com.example.autrackmobile.utilities.PreferenceManager;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,10 +43,29 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         preferenceManager = new PreferenceManager(getApplicationContext());
+
         loadUserDetails();
         getToken();
         setListeners();
+
+        BottomNavigationView bottomNavigationView = binding.bottomNavigationView; //findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setSelectedItemId(R.id.dashboard);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.dashboard) {
+                return true;
+            } else if (item.getItemId() == R.id.messaging) {
+                //finish after creating activity for messaging
+                startActivity(new Intent(getApplicationContext(), UsersActivity.class));
+                overridePendingTransition(0,0);
+                return true;
+            }
+            return false;
+        });
+
     }
+
 
     private void setListeners() {
         binding.signOut.setOnClickListener(v -> signOut());
@@ -66,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 );
         documentReference.update(Constants.KEY_FCM_TOKEN, token)
                 .addOnSuccessListener(unused -> showToast("Token Successfully Updated!"))
-                .addOnFailureListener(e -> showToast("Umable to update token."));
+                .addOnFailureListener(e -> showToast("Unable to update token."));
     }
 
     private void signOut() {

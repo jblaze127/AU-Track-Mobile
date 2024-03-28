@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/dashboard"
+        android:icon="@drawable/home"
+        android:id="@+id/dashboard"/>
+
+    <item android:title="@string/appointments"
+        android:icon="@drawable/scheduling"
+        android:id="@+id/appointments"/>
+
+    <item android:title="@string/messaging"
+        android:icon="@drawable/ic_addchat"
+        android:id="@+id/messaging"/>
+
+    <item android:title="@string/schedule"
+        android:icon="@drawable/icon_run"
+        android:id="@+id/schedule"/>
+
+    <item android:title="@string/profile"
+        android:icon="@drawable/profile_icon"
+        android:id="@+id/profile"/>
+</menu>
