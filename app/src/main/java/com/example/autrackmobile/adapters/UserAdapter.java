@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.autrackmobile.databinding.ItemContainerUserBinding;
+import com.example.autrackmobile.listeners.UserListener;
 import com.example.autrackmobile.models.User;
 
 import java.util.List;
@@ -18,8 +19,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     private final List<User> users;
 
-    public UserAdapter(List<User> users) {
+    private final UserListener userListener;
+
+    public UserAdapter(List<User> users, UserListener userListener) {
         this.users = users;
+        this.userListener = userListener;
     }
 
 
@@ -58,6 +62,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             binding.textFName.setText(user.fname);
             binding.textLName.setText(user.lname);
             binding.imageProfile.setImageBitmap(getUserImage(user.image));
+            binding.getRoot().setOnClickListener(v -> userListener.onUserClicked(user));
         }
     }
 
