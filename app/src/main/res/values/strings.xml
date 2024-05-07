@@ -24,4 +24,10 @@
     <string name="chat">Messaging</string>
     <string name="send_a_message">Send a message</string>
     <string name="online">Online</string>
+    <string name="add_workout">Add Workout</string>
+    <string name="enter_name_for_workout">Enter Name for workout</string>
+    <string name="enter_date_for_workout">Enter date for workout</string>
+    <string name="enter_workout_name">Enter workout name</string>
+    <string name="enter_workout_date">Enter workout date</string>
+    <string name="go_to_workout_reps">Go to workout Reps</string>
 </resources>

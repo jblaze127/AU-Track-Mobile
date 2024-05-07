@@ -15,9 +15,15 @@
         android:theme="@style/Base.Theme.AUTrackMobile"
         tools:targetApi="34">
         <activity
-            android:name=".activities.ChatActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".activities.AddWorkout"
             android:exported="false" />
+        <activity
+            android:name=".activities.Appointments"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activities.SelectUsers"
             android:exported="false" />

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.Base64;
 import android.widget.Toast;
 
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setSelectedItemId(R.id.dashboard);
 
+        //code deals with bottom navigation view movements
+        //testing to press on messaging to make it go to each specific activities
+
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.dashboard) {
                 return true;
@@ -55,8 +59,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), UsersActivity.class));
                 overridePendingTransition(0,0);
                 return true;
+            } else if (item.getItemId() == R.id.appointments) {
+                startActivity(new Intent(getApplicationContext(), Appointments.class));
+                overridePendingTransition(0,0);
+                return true;
+            } else if (item.getItemId() == R.id.profile) {
+                //finish
+
+            } else if (item.getItemId() == R.id.schedule) {
+                //finish
+
             }
             return false;
+        });
+
+        binding.floatingActionButton2.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), AddWorkout.class));
+            overridePendingTransition(0,0);
+            //Toast.makeText(this, "Btn Clicked", Toast.LENGTH_SHORT).show();
         });
 
     }
